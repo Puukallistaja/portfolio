@@ -25,12 +25,6 @@ $(document).ready(function(){
     let currHeight = sl.slider('option', 'value');
     let newHeight;
     // console.log("curr" + currHeight)
-    function slideWithScroll(height) {
-      // console.log(`new${height}`)
-      sl.slider('option', 'value', height);
-      sl.slider('option','slide')
-          .call(sl, null, { handle: $('.ui-slider-handle', sl), value: height });
-    }
 
     if ( event.originalEvent.detail     > 0 
       || event.originalEvent.wheelDelta < 0 ) {
@@ -39,19 +33,27 @@ $(document).ready(function(){
       // stop scrolling if getting out of bounds
       newHeight = currHeight >= 14 ? currHeight -2
                                    : currHeight
-      slideWithScroll(newHeight);
+      moveSlider(newHeight);
 
     } else {
       //scroll up
       newHeight = currHeight <= 86 ? currHeight + 2
                                    : currHeight
-      slideWithScroll(newHeight);
+      moveSlider(newHeight);
     }
     //prevent page fom scrolling
     return false;
   });
 
+  function moveSlider(height) {
+    // console.log(`new${height}`)
+    sl.slider('option', 'value', height);
+    sl.slider('option','slide')
+        .call(sl, null, { handle: $('.ui-slider-handle', sl), value: height });
+  }
   // click events on name and words
- 
+  $('.words').on('click', function() {
+
+  });
 
 });
