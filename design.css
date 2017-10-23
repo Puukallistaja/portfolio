@@ -12,7 +12,8 @@ html, body {
   position: relative;
   height: 100%;
   width: 100%;
-  background: rgb(100, 100, 100) url(window16_9.jpg);
+  background: rgb(100, 100, 100) url(window.jpg);
+  background-attachment: fixed;
   background-size: cover;
   background-position: center;
 
@@ -26,6 +27,7 @@ html, body {
   min-height: 10%;
 
   background: rgb(0, 0, 0);
+  /* transition: all .1s ease-in-out; */
 }
 .top {
   top: 0;
@@ -56,4 +58,59 @@ html, body {
   left: 1rem;
   top: 12%;
   height: 76%;
+}
+
+/* temp settings */
+.top, .bottom {
+  transition: all .3s linear;
+}
+.base {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.works {
+  position: absolute;
+  left: 45%;
+  top: 18%;
+  width: 30rem;
+
+  border: 10px ridge rgb(150, 150, 150);
+  border-top-color: rgb(120, 120, 120);
+  border-right-color: rgb(100, 100, 100);
+  
+  transform: perspective(350px) rotateY( -6deg );
+  box-shadow: 
+              5px 0px 10px 0px rgba(0,0,0,0.75),
+        inset 4px 0px 13px 3px rgba(0,0,0,0.75);
+}
+.work {
+  border: 5px inset rgb(150, 150, 150);
+
+  height: 16rem;
+  margin: 0rem;
+
+}
+.work img {
+  height: 100%;
+  width: auto;
+}
+.work:focus {
+  outline: 0;
+}
+.smike {
+  background: url(smike.jpg);
+  background-position: 51% 15%;
+
+}
+.intro-cont {
+  position: relative;
+}
+.introduction {
+  position: absolute;
+  height: 0;
+  overflow: hidden;
+}
+.work:hover .introduction {
+  height: 100%;
 }
