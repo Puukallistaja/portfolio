@@ -12,12 +12,12 @@ $(document).ready(function(){
       $('#spacer').css({'top': `${pos}%`})
 
       // element coordinates and dimensions
-      let spacerPosition = $('.spacer').offset();
+      let spacerPos = $('.spacer').offset();
       let spacerHeight = $('.spacer').height();
       let container = $('.base').height();
       // glue top and bottom to spacer
-      $('.top').height(`${spacer.top}px`)
-      $('.bottom').height(`${base - spacer.top - spacerHeight}px`)
+      $('.top').height(`${spacerPos.top}px`)
+      $('.bottom').height(`${base - spacerPos.top - spacerHeight}px`)
 
     }
   });
