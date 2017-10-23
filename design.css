@@ -64,7 +64,9 @@ html, body {
 
 /* temp settings */
 .top, .bottom {
-  /* transition: all .3s linear; */
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 .base {
   display: flex;
@@ -115,4 +117,53 @@ html, body {
 }
 .work:hover .introduction {
   height: 100%;
+}
+.top header {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: flex-start;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.top header h1 {
+  flex: 0 0 auto;
+  margin-right: 2rem;
+  font-size: 6rem;
+  font-variant: small-caps;
+}
+.top header ul {
+  list-style: none;
+  color: rgba(255, 0, 0, 7);
+}
+.words {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: flex-start;
+
+  margin-left: 1rem;
+  font-size: 6rem;
+  font-variant: small-caps;
+  cursor: pointer;
+}
+.words ul {
+  position: relative;
+  top: .4rem;
+
+  font-size: 1.1rem;
+  align-self: center;
+  
+}
+.bottom {
+  display: flex;
+  align-items: flex-start;
+}
+.bottom h1 {
+  line-height: .9;
+  flex: 0 0 auto;
+  margin-right: 1rem;
+  font-size: 6rem;
+  font-variant: small-caps;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
 }

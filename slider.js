@@ -50,4 +50,8 @@ $(document).ready(function(){
     //prevent page fom scrolling
     return false;
   });
+
+  // click events on name and words
+ 
+
 });
