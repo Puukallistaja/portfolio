@@ -8,10 +8,13 @@ $(document).ready(function(){
     slide: function( event, ui ) {
       //position of the spacer in %
       let pos = 100 - ui.value;
+      console.log(pos)
       $('#spacer').css({'top': `${pos}%`})
 
       if (ui.value > 50) {
-        $('.blue').height(event.pageY)
+        $('.top').height(`${pos}%`)
+      } else {
+        $('.bottom').height(`${100 - pos}%`)
       }
     }
   });
