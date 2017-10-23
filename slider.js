@@ -17,8 +17,7 @@ $(document).ready(function(){
       let container = $('.base').height();
       // glue top and bottom to spacer
       $('.top').height(`${spacerPos.top}px`)
-      $('.bottom').height(`${base - spacerPos.top - spacerHeight}px`)
-
+      $('.bottom').height(`${container - spacerPos.top - spacerHeight}px`)
     }
   });
   // when scrolled, move the spacer
