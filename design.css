@@ -15,13 +15,14 @@ html, body {
   background: rgb(100, 100, 100) url(window16_9.jpg);
   background-size: cover;
   background-position: center;
+
+  overflow: hidden;
 }
 .top, .bottom {
   position: absolute;
   z-index: 10;
-  height: 48%;
   width: 100%;
-  max-height: 48%;
+
   min-height: 10%;
 
   background: rgb(0, 0, 0);
@@ -29,27 +30,30 @@ html, body {
 .top {
   top: 0;
   left: 0;
-
-  margin-bottom: 2rem;
+  height: 62%;
 }
 .bottom {
   bottom: 0;
   left: 0;
+
+  height: 34%;
 }
 
 .spacer {
   position: absolute;
-  top: 50%;
+  top: 64%;
   z-index: 20;
   height: 1.6rem;
   width: 100%;
   margin-top: -.8rem;
-  background: rgba(255, 0, 0, 0.678)
+
+  background: rgba(255, 0, 0, 0.678);
 }
 .slider {
+  opacity: 0;
   z-index: 50;
   position: absolute;
-  right: 1rem;
-  top: 10%;
-  height: 80%;
+  left: 1rem;
+  top: 12%;
+  height: 76%;
 }

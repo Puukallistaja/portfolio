@@ -95,11 +95,13 @@
 	text-align: left;
 }
 .ui-slider .ui-slider-handle {
+	
 	position: absolute;
 	z-index: 2;
-	width: 1.2em;
-	height: 1.2em;
-	cursor: default;
+	width: 100vw;
+	/* full page, so it doesnt matter where we grab it */
+	height: 1.6em;
+	cursor: row-resize;
 	-ms-touch-action: none;
 	touch-action: none;
 }
