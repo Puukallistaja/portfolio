@@ -3,46 +3,22 @@ $(document).ready(function(){
 
   const sl = $('#slider').slider({
     orientation: "vertical",
-    // range: "max",
     min: 12,
     max: 88,
     value: 36,
     slide: function( event, ui ) {
       //position of the spacer in %
       let pos = 100 - ui.value;
-      console.log(pos)
       $('#spacer').css({'top': `${pos}%`})
 
-      let top = $('.top').offset();
-      let bottom = $('.bottom').offset();
-      let spacer = $('.spacer').offset();
+      // element coordinates and dimensions
+      let spacerPosition = $('.spacer').offset();
       let spacerHeight = $('.spacer').height();
-      let base = $('.base').height();
-      // console.log(top, bottom)
-      console.log(base)
-
+      let container = $('.base').height();
+      // glue top and bottom to spacer
       $('.top').height(`${spacer.top}px`)
       $('.bottom').height(`${base - spacer.top - spacerHeight}px`)
 
-
-      //move the cover divs with the slider
-      //===================================
-      // if (pos < sliderOrigninalOffset) {
-
-      //   $('.top').height(`${pos - 2}%`)
-      // } else if (pos === sliderOrigninalOffset) {
-      //   //this is getting ugly
-      //   // when its the orignal position, both sliders need to adjust
-      //   // else there will be a gap
-        
-      //   $('.top').height(`${pos - 2}%`)
-      //   $('.bottom').height(`${98 - pos}%`)
-      // } else {
-
-      //   $('.bottom').height(`${98 - pos}%`)
-      // }
-
-      
     }
   });
   // when scrolled, move the spacer
@@ -61,7 +37,7 @@ $(document).ready(function(){
       || event.originalEvent.wheelDelta < 0 ) {
       //scroll down
 
-      //check if we can scroll more 
+      // stop scrolling if getting out of bounds
       newHeight = currHeight >= 14 ? currHeight -2
                                    : currHeight
       slideWithScroll(newHeight);
