@@ -1,13 +1,17 @@
 $(document).ready(function(){
 
-  const MIN = 12;
-  const MAX = 88;
+  console.log($('body').height() / 100)
+  console.log($(document).height() / 100 * 16)
+  console.log($('.top').height())
+  console.log($('.ui-slider-handle').parent())
+  const MIN = 20;
+  const MAX = 64;
 
   const sl = $('#slider').slider({
     orientation: "vertical",
     min: MIN,
     max: MAX,
-    value: 33,
+    value: 31,
     create: function( event, ui ) {
       // alignElements()
     },
@@ -42,7 +46,7 @@ $(document).ready(function(){
   $('body').on( 'DOMMouseScroll mousewheel', function ( event ) {
     let currHeight = sl.slider('option', 'value');
     let newHeight;
-    let step = 2;
+    let step = 4;
 
     if ( event.originalEvent.detail     > 0 
       || event.originalEvent.wheelDelta < 0 ) {
@@ -78,7 +82,7 @@ $(document).ready(function(){
   }
   // click events on name and words
   $('.words, #name').on('click', function() {
-    let target = $(this).is($('.words')) === true ? MAX : MIN
+    let target = $(this).is($('.words')) === true ? MAX : MIN;
     moveSlider(target, .8, 'ease-in-out');
 
 

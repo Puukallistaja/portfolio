@@ -39,15 +39,15 @@ html, body {
   bottom: 0;
   left: 0;
 
-  height: 32%;
-  max-height: 32%;
+  height: 34%;
+  max-height: 33%;
 }
 
 .spacer {
   position: absolute;
   top: 64%;
   z-index: 20;
-  height: 4%;
+  height: 4vh;
   width: 110%;
 
   background: rgba(255, 0, 0, 0.678);
@@ -57,11 +57,14 @@ html, body {
   z-index: 50;
   position: absolute;
   left: 0;
-  top: 17.6%;
-  height: 66%;
+  /*  */
+  top: 20vh;
+  height: 64%;
 }
 .ui-slider-handle {
   border: none;
+  margin: 0;
+  padding: 0;
 }
 
 /* =====================  temp settings ====================== */
@@ -145,7 +148,7 @@ html, body {
 }
 .words {
   display: flex;
-  /* opacity: 0; */
+  opacity: 0;
   flex: 1 1 auto;
   justify-content: flex-start;
 
@@ -155,7 +158,7 @@ html, body {
   cursor: pointer;
 }
 #name {
- 
+  opacity: 0;
 }
 .words ul {
   position: relative;
@@ -178,4 +181,9 @@ html, body {
   color: white;
   font-family: Arial, Helvetica, sans-serif;
   cursor: pointer;
+}
+.ui-slider {
+  border: none;
+  margin: 0;
+  padding: 0;
 }
