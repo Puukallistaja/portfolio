@@ -1,16 +1,22 @@
 $(document).ready(function(){
 
+  const MIN = 12;
+  const MAX = 88;
+
   const sl = $('#slider').slider({
     orientation: "vertical",
-    min: 12,
-    max: 88,
-    value: 34,
+    min: MIN,
+    max: MAX,
+    value: 33,
     create: function( event, ui ) {
-      alignElements()
+      // alignElements()
     },
     slide: function( event, ui ) {
       alignElements()
-    }
+    },
+    stop: function( event, ui ) {
+      moveSlider(ui.value, .5)
+    },
   });
 
   function alignElements() {
@@ -36,45 +42,47 @@ $(document).ready(function(){
   $('body').on( 'DOMMouseScroll mousewheel', function ( event ) {
     let currHeight = sl.slider('option', 'value');
     let newHeight;
-    let step = 2
+    let step = 4;
 
     if ( event.originalEvent.detail     > 0 
       || event.originalEvent.wheelDelta < 0 ) {
       //scroll down
                   // stop scrolling if getting out of bounds
-      moveSlider( currHeight >= 14 ? currHeight - step
-                                   : currHeight );
+      moveSlider( currHeight >= (MIN - step) ? currHeight - step
+                                             : currHeight );
     } else {
       //scroll up
-      moveSlider( currHeight <= 86 ? currHeight + step
-                                   : currHeight );
+      moveSlider( currHeight <= (MAX - step) ? currHeight + step
+                                             : currHeight );
     }
     //prevent page fom scrolling
     return false;
   });
 
-  function moveSlider(height) {
+  function moveSlider(height, speed = .3, easing = 'linear') {
     // console.log(`new${height}`)
+    $('.spacer, .top, .bottom')
+    .css('transition', `all ${speed}s ${easing}`)
+    .on(`webkitTransitionEnd 
+        mozTransitionEnd 
+        MSTransitionEnd 
+        oTransitionend 
+        Transitionend`,
+        function() {
+          alignElements();
+          $(this).css('transition', '');
+    });
+
     sl.slider('option', 'value', height);
     sl.slider('option','slide')
         .call(sl, null, { handle: $('.ui-slider-handle', sl), value: height });
   }
   // click events on name and words
   $('.words, #name').on('click', function() {
-    let target = $(this).is($('.words')) === true ? 88 : 12
-    moveSlider(target);
+    let target = $(this).is($('.words')) === true ? MAX : MIN
+    moveSlider(target, .8, 'ease-in-out');
 
-    $('.spacer, .top, .bottom')
-        .css('transition', 'all .5s linear')
-        .on(`webkitTransitionEnd 
-            mozTransitionEnd 
-            MSTransitionEnd 
-            oTransitionend 
-            Transitionend`,
-            function() {
-              alignElements();
-              $(this).css('transition', '');
-            });
+
   });
 
 });
