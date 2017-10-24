@@ -47,13 +47,13 @@ html, body {
   position: absolute;
   top: 63.5%;
   z-index: 20;
-  height: 1.7rem;
+  height: 1.6rem;
   width: 100%;
 
   background: rgba(255, 0, 0, 0.678);
 }
 .slider {
-  opacity: 0;
+  /* opacity: 0; */
   z-index: 50;
   position: absolute;
   left: 0;
@@ -145,7 +145,7 @@ html, body {
 }
 .words {
   display: flex;
-  opacity: 0;
+  /* opacity: 0; */
   flex: 1 1 auto;
   justify-content: flex-start;
 
@@ -155,7 +155,7 @@ html, body {
   cursor: pointer;
 }
 #name {
-  opacity: 0;
+ 
 }
 .words ul {
   position: relative;

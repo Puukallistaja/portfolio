@@ -1,7 +1,5 @@
 $(document).ready(function(){
 
-  // alignElements();
-
   const sl = $('#slider').slider({
     orientation: "vertical",
     min: 12,
@@ -22,10 +20,13 @@ $(document).ready(function(){
     let spacerY = $('.spacer').offset().top;
     let spacerHeight = $('.spacer').height() -1;
     let baseY = $('.base').height();
-
+    console.log(`=======================
+    ${spacerY}
+    ----
+    ${slHandleY}`)
     // glue spacer to slider handle
     // glue top and bottom to spacer
-    $('.spacer').offset({ top: slHandleY });
+    $('.spacer').offset($('.ui-slider-handle').offset());
     $('.top').height(`${slHandleY}`);
     $('.bottom').height(`${baseY - slHandleY - spacerHeight}`);
   }
@@ -59,8 +60,21 @@ $(document).ready(function(){
         .call(sl, null, { handle: $('.ui-slider-handle', sl), value: height });
   }
   // click events on name and words
-  $('.words').on('click', function() {
+  $('.words, #name').on('click', function() {
+    let target = $(this).is($('.words')) === true ? 88 : 12
+    moveSlider(target);
 
+    $('.spacer, .top, .bottom')
+        .css('transition', 'all .5s linear')
+        .on(`webkitTransitionEnd 
+            mozTransitionEnd 
+            MSTransitionEnd 
+            oTransitionend 
+            Transitionend`,
+            function() {
+              alignElements();
+              $(this).css('transition', '');
+            });
   });
 
 });
