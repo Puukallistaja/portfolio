@@ -32,15 +32,15 @@ html, body {
 .top {
   top: 0;
   left: 0;
-  height: 64%;
-  max-height: 64%;
+  height: 64vh;
+  max-height: 64vh;
 }
 .bottom {
   bottom: 0;
   left: 0;
 
-  height: 34%;
-  max-height: 33%;
+  height: 32vh;
+  max-height: 32vh;
 }
 
 .spacer {
@@ -53,13 +53,13 @@ html, body {
   background: rgba(255, 0, 0, 0.678);
 }
 .slider {
-  /* opacity: 0; */
+  opacity: 0;
   z-index: 50;
   position: absolute;
   left: 0;
   /*  */
   top: 20vh;
-  height: 64%;
+  height: 64vh;
 }
 .ui-slider-handle {
   border: none;
@@ -87,14 +87,14 @@ html, body {
 .works {
   position: absolute;
   left: 45%;
-  top: 18%;
-  width: 30rem;
+  top: 25vh;
+  width: 26rem;
 
   border: 10px ridge rgb(150, 150, 150);
   border-top-color: rgb(120, 120, 120);
   border-right-color: rgb(100, 100, 100);
   
-  transform: perspective(350px) rotateY( -6deg );
+  transform: perspective(250px) rotateY( -6deg );
   box-shadow: 
               5px 0px 10px 0px rgba(0,0,0,0.75),
         inset 4px 0px 13px 3px rgba(0,0,0,0.75);
@@ -102,7 +102,7 @@ html, body {
 .work {
   /* border: 5px inset rgb(150, 150, 150); */
 
-  height: 16rem;
+  height: 14rem;
   margin: 0rem;
 
 }
@@ -148,7 +148,7 @@ html, body {
 }
 .words {
   display: flex;
-  opacity: 0;
+  /* opacity: 0; */
   flex: 1 1 auto;
   justify-content: flex-start;
 
@@ -156,17 +156,28 @@ html, body {
   font-size: 6rem;
   font-variant: small-caps;
   cursor: pointer;
+
+  user-select: none;
+  
 }
 #name {
-  opacity: 0;
+  /* opacity: 0; */
+  user-select: none;
 }
+.spacer {
+  animation-duration: 2s;
+  animation-delay: 1s;
+}
+
 .words ul {
   position: relative;
   top: .4rem;
 
   font-size: 1.1rem;
   align-self: center;
-  
+
+  /* animation-duration: 1.5s; */
+  animation-delay: 2.5s;
 }
 .bottom {
   display: flex;
