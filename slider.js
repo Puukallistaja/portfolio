@@ -1,45 +1,52 @@
 $(document).ready(function(){
-  const sliderOrigninalOffset = 64
+
+  // alignElements();
 
   const sl = $('#slider').slider({
     orientation: "vertical",
     min: 12,
     max: 88,
-    value: 36,
+    value: 34,
+    create: function( event, ui ) {
+      alignElements()
+    },
     slide: function( event, ui ) {
-      //position of the spacer in %
-      let pos = 100 - ui.value;
-      $('#spacer').css({'top': `${pos}%`})
-
-      // element coordinates and dimensions
-      let spacerPos = $('.spacer').offset();
-      let spacerHeight = $('.spacer').height();
-      let container = $('.base').height();
-      // glue top and bottom to spacer
-      $('.top').height(`${spacerPos.top}px`)
-      $('.bottom').height(`${container - spacerPos.top - spacerHeight}px`)
+      alignElements()
     }
   });
-  // when scrolled, move the spacer
+
+  function alignElements() {
+
+    // element coordinates and dimensions
+    let slHandleY = $('.ui-slider-handle').offset().top;
+    let spacerY = $('.spacer').offset().top;
+    let spacerHeight = $('.spacer').height() -1;
+    let baseY = $('.base').height();
+
+    // glue spacer to slider handle
+    // glue top and bottom to spacer
+    $('.spacer').offset({ top: slHandleY });
+    $('.top').height(`${slHandleY}`);
+    $('.bottom').height(`${baseY - slHandleY - spacerHeight}`);
+  }
+
+
+  // when scrolled, move the slider
   $('body').on( 'DOMMouseScroll mousewheel', function ( event ) {
     let currHeight = sl.slider('option', 'value');
     let newHeight;
-    // console.log("curr" + currHeight)
+    let step = 2
 
     if ( event.originalEvent.detail     > 0 
       || event.originalEvent.wheelDelta < 0 ) {
       //scroll down
-
-      // stop scrolling if getting out of bounds
-      newHeight = currHeight >= 14 ? currHeight -2
-                                   : currHeight
-      moveSlider(newHeight);
-
+                  // stop scrolling if getting out of bounds
+      moveSlider( currHeight >= 14 ? currHeight - step
+                                   : currHeight );
     } else {
       //scroll up
-      newHeight = currHeight <= 86 ? currHeight + 2
-                                   : currHeight
-      moveSlider(newHeight);
+      moveSlider( currHeight <= 86 ? currHeight + step
+                                   : currHeight );
     }
     //prevent page fom scrolling
     return false;

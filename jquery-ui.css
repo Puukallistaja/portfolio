@@ -99,7 +99,7 @@
 	position: absolute;
 	z-index: 2;
 	width: 100vw;
-	/* full page, so it doesnt matter where we grab it */
+	/* full page, so it doesnt matter where we grab it horizontally*/
 	height: 1.6em;
 	cursor: row-resize;
 	-ms-touch-action: none;

@@ -32,24 +32,23 @@ html, body {
 .top {
   top: 0;
   left: 0;
-  height: 62%;
-  max-height: 62%;
+  height: 63.5%;
+  max-height: 63.5%;
 }
 .bottom {
   bottom: 0;
   left: 0;
 
-  height: 34%;
-  max-height: 34%;
+  height: 32.5%;
+  max-height: 32.5%;
 }
 
 .spacer {
   position: absolute;
-  top: 64%;
+  top: 63.5%;
   z-index: 20;
-  height: 1.6rem;
+  height: 1.7rem;
   width: 100%;
-  margin-top: -.8rem;
 
   background: rgba(255, 0, 0, 0.678);
 }
@@ -57,16 +56,25 @@ html, body {
   opacity: 0;
   z-index: 50;
   position: absolute;
-  left: 1rem;
+  left: 0;
   top: 12%;
   height: 76%;
 }
+.ui-slider-handle {
+  border: none;
+}
 
-/* temp settings */
+/* =====================  temp settings ====================== */
 .top, .bottom {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+}
+.top {
+  /* border-bottom: 1px solid white; */
+}
+.bottom {
+  /* border-top: 1px solid white; */
 }
 .base {
   display: flex;
@@ -137,6 +145,7 @@ html, body {
 }
 .words {
   display: flex;
+  opacity: 0;
   flex: 1 1 auto;
   justify-content: flex-start;
 
@@ -144,6 +153,9 @@ html, body {
   font-size: 6rem;
   font-variant: small-caps;
   cursor: pointer;
+}
+#name {
+  opacity: 0;
 }
 .words ul {
   position: relative;
