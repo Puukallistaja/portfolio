@@ -69,7 +69,6 @@ $(document).ready(function(){
         oTransitionend 
         Transitionend`,
         function() {
-          alignElements();
           $(this).css('transition', '');
     });
 

@@ -32,15 +32,15 @@ html, body {
 .top {
   top: 0;
   left: 0;
-  height: 64%;
-  max-height: 64%;
+  /* height: 64%; */
+  max-height: 65%;
 }
 .bottom {
   bottom: 0;
   left: 0;
 
-  height: 33%;
-  max-height: 33%;
+  /* height: calc(%); */
+  max-height: 31%;
 }
 
 .spacer {
@@ -53,11 +53,11 @@ html, body {
   background: rgba(255, 0, 0, 0.678);
 }
 .slider {
-  /* opacity: 0; */
+  opacity: 0;
   z-index: 50;
   position: absolute;
   left: 0;
-  top: 12%;
+  top: 11.6%;
   height: 76%;
 }
 .ui-slider-handle {
