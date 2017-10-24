@@ -48,7 +48,7 @@ html, body {
   top: 64%;
   z-index: 20;
   height: 4vh;
-  width: 110%;
+  width: 100vw;
 
   background: rgba(255, 0, 0, 0.678);
 }
@@ -57,7 +57,6 @@ html, body {
   z-index: 50;
   position: absolute;
   left: 0;
-  /*  */
   top: 20vh;
   height: 64vh;
 }
@@ -87,7 +86,7 @@ html, body {
 .works {
   position: absolute;
   left: 45%;
-  top: 25vh;
+  top: 24vh;
   width: 26rem;
 
   border: 10px ridge rgb(150, 150, 150);
@@ -165,8 +164,8 @@ html, body {
   user-select: none;
 }
 .spacer {
-  animation-duration: 2s;
-  animation-delay: 1s;
+  animation-duration: 1s;
+  animation-delay: .5s;
 }
 
 .words ul {
@@ -177,7 +176,7 @@ html, body {
   align-self: center;
 
   /* animation-duration: 1.5s; */
-  animation-delay: 2.5s;
+  animation-delay: 1s;
 }
 .bottom {
   display: flex;

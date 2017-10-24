@@ -1,15 +1,10 @@
 $(document).ready(function(){
 
-  console.log($('body').height() / 100)
-  console.log($(document).height() / 100 * 16)
-  console.log($('.top').height())
-  console.log($('.ui-slider-handle').parent())
-
   // $('#spacer').addClass('animated lightSpeedIn');
   $('#spacer').addClass('animated slideInRight');
   $('ul').addClass('animated fadeInDown');
   
-
+  let open = false;
   const MAX = 64;
   const MIN = 20;
 
@@ -17,9 +12,9 @@ $(document).ready(function(){
     orientation: "vertical",
     min: MIN,
     max: MAX,
-    value: 30,
+    value: 31,
     create: function( event, ui ) {
-      // alignElements()
+
     },
     slide: function( event, ui ) {
       alignElements()
@@ -34,7 +29,7 @@ $(document).ready(function(){
     // element coordinates and dimensions
     let slHandleY = $('.ui-slider-handle').offset().top;
     let spacerY = $('.spacer').offset().top;
-    let spacerHeight = $('.spacer').height() -1;
+    let spacerHeight = $('.spacer').height() - 1;
     let baseY = $('.base').height();
     console.log(`=======================
     ${spacerY}
@@ -52,7 +47,7 @@ $(document).ready(function(){
   $('body').on( 'DOMMouseScroll mousewheel', function ( event ) {
     let currHeight = sl.slider('option', 'value');
     let newHeight;
-    let step = 1;
+    let step = 4;
 
     if ( event.originalEvent.detail     > 0 
       || event.originalEvent.wheelDelta < 0 ) {
@@ -88,10 +83,15 @@ $(document).ready(function(){
   }
   // click events on name and words
   $('.words, #name').on('click', function() {
-    let target = $(this).is($('.words')) === true ? MAX : MIN;
-    moveSlider(target, .8, 'ease-in-out');
-
-
+    if (open) {
+      moveSlider(31, .5);
+      open = false;
+    } else {
+      let target = $(this).is($('.words')) === true ? MAX : MIN;
+      moveSlider(target, .8, 'ease-in-out');
+      open = true;
+    }
+    
   });
 
 });
