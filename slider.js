@@ -42,7 +42,7 @@ $(document).ready(function(){
   $('body').on( 'DOMMouseScroll mousewheel', function ( event ) {
     let currHeight = sl.slider('option', 'value');
     let newHeight;
-    let step = 4;
+    let step = 2;
 
     if ( event.originalEvent.detail     > 0 
       || event.originalEvent.wheelDelta < 0 ) {
