@@ -14,7 +14,7 @@ $(document).ready(function(){
     max: MAX,
     value: START,
     create: function( event, ui ) {
-
+      // alignElements()
     },
     slide: function( event, ui ) {
       alignElements()

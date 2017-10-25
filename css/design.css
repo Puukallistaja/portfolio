@@ -76,7 +76,6 @@ html, body {
   animation-duration: 1s;
   animation-delay: .5s;
 }
-
 /* slider is the anchor for moving covers
    it is represented for the user buy the spacer */
 .slider {
@@ -87,6 +86,7 @@ html, body {
   top: 20vh;
   height: 64vh;
 }
+
 
 /* carousel to display examples 
 =============================== */
@@ -228,13 +228,60 @@ html, body {
     font-size: 3rem;
   }
   .words {
+    justify-content: space-between;
     align-items: flex-end;
   }
   .words ul {
-    top: 0;
+    top: -.5rem;
     font-size: 3rem;
+    line-height: .8;
   }
   .contacts {
     left: 16.5vh;
+  }
+}
+@media screen and (max-width: 600px) {
+  .words,
+  .name {
+    font-size: 2.7rem;;
+  }
+  .words {
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: flex-end;
+    line-height: .6;
+    margin-bottom: .5rem;
+  }
+
+  .words ul {
+    top: 0;
+    left: -.1rem;
+
+    align-self: left;
+    line-height: .8;
+  }
+  /* on small screens, viewport units created a mess */
+  .top {
+    height: 64%;
+    max-height: 64%;
+  }
+  .bottom {
+    height: 32%;
+    max-height: 32%;
+  }
+  .spacer {
+    top: 64%;
+    height: 4.2%;
+  }
+  .slider {
+    top: 20%;
+    height: 64%;
+  }
+  
+}
+/* for lands */
+@media screen and (max-height: 600px) and (orientation: landscape) {
+  .spacer {
+    height: 4.1%;
   }
 }
