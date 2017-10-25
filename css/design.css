@@ -1,0 +1,215 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+
+/* background with works and contacts
+======================================*/
+.base {
+  /* we need a positioned element for absolutes to stick */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+  width: 100%;
+
+  background: rgb(100, 100, 100) url(../img/window.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+
+  overflow: hidden;
+}
+
+
+/* cover slides
+==============*/
+.top, .bottom {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  z-index: 10;
+  width: 100%;
+
+  background: rgb(0, 0, 0);
+  font-family: Arial, Helvetica, sans-serif;
+  font-variant: small-caps;
+}
+.top {
+  top: 0;
+  left: 0;
+
+  /* align it to be just above the slider */
+  height: 64vh;
+  max-height: 64vh;
+}
+.bottom {
+  align-items: flex-start;
+
+  bottom: 0;
+  left: 0;
+
+  /* align it to be just below the slider */
+  height: 32vh;
+  max-height: 32vh;
+}
+
+.spacer {
+  position: absolute;
+  top: 64vh;
+  z-index: 20;
+  height: 4vh;
+  width: 100vw;
+
+  background: rgba(255, 0, 0, 0.7);
+  /* spacer fills the gap */
+  animation-duration: 1s;
+  animation-delay: .5s;
+}
+
+/* slider is the anchor for moving covers
+   it is represented for the user buy the spacer */
+.slider {
+  opacity: 0;
+  z-index: 50;
+  position: absolute;
+  left: 0;
+  top: 20vh;
+  height: 64vh;
+}
+
+/* carousel to display examples 
+=============================== */
+
+.works {
+  position: relative;
+  top: -7vh;
+  left: 32vw;
+  width: 36vw;
+
+  border: 10px ridge rgb(150, 150, 150);
+  border-top-color: rgb(120, 120, 120);
+  border-right-color: rgb(100, 100, 100);
+  
+  transform: perspective(400px) rotateY( -5deg );
+
+  box-shadow: 
+              5px 0px 10px 0px rgba(0,0,0,0.75),
+        inset 4px 0px 13px 3px rgba(0,0,0,0.75);
+}
+
+/* individual example container
+=============================== */
+.work {
+  /* gives height also for container: works */
+  height: 35vh;
+  margin: 0rem;
+
+}
+.work img {
+  height: 100%;
+  width: auto;
+}
+.work:focus {
+  outline: 0;
+}
+
+/* individual works
+=================== */
+.smike {
+  background: url(../img/smike.jpg);
+  background-position: 51% 15%;
+}
+
+/* landing page visual elements
+=============================== */
+.words,
+.name {
+  color: rgb(255, 255, 255);
+  font-size: 6rem;
+  cursor: pointer;
+  user-select: none;
+}
+/* tagline 'building=web'
+========================= */
+.words {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: flex-start;
+
+  margin-left: 1rem;
+  
+  
+  font-size: 6rem;
+  font-variant: small-caps;
+}
+/* list of red words */
+.words ul {
+  position: relative;
+  align-self: center;
+
+  top: .4rem;
+  list-style: none;
+  color: rgb(200, 0, 0);
+  font-size: 1.2rem;
+
+  /* start the animation when spacer has almost finished its */
+  animation-delay: 1s;
+}
+
+/* name at the bottom of the spacer
+===================================  */
+.name{
+  line-height: .9;
+  flex: 0 0 auto;
+  margin-right: 1rem;
+}
+
+
+/* these are in the base div, under the covers
+============================================== */
+.contacts {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+
+  top: 22vh;
+  left: 14vw;
+
+  width: 30vw;
+
+  /* transform: perspective(100px) rotateY( -4deg ); */
+}
+.email {
+  background: url(../img/email.svg);
+}
+.facebook {
+  background: url(../img/facebook.svg);
+  /* make fb icon fit better */
+  width: 8vh !important;
+}
+.github {
+  background: url(../img/github.svg);
+}
+
+.email,
+.facebook,
+.github {
+  height: 8vh;
+  width: 14vh;
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
