@@ -150,10 +150,11 @@ html, body {
 ========================= */
 .words {
   display: flex;
-  flex: 1 1 auto;
+  flex-flow: row nowrap;
   justify-content: flex-start;
+  flex: 1 1 auto;
 
-  margin-left: 1rem;
+  margin: 0 1rem;
   
   
   font-size: 6rem;
@@ -218,4 +219,22 @@ html, body {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+
+@media screen and (max-width: 705px) {
+  .words,
+  .name {
+    font-size: 3rem;
+  }
+  .words {
+    align-items: flex-end;
+  }
+  .words ul {
+    top: 0;
+    font-size: 3rem;
+  }
+  .contacts {
+    left: 16.5vh;
+  }
 }
