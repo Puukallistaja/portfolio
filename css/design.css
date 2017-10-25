@@ -128,7 +128,13 @@ html, body {
 =================== */
 .smike {
   background: url(../img/smike.jpg);
+  background-size: cover;
   background-position: 51% 15%;
+}
+.cookbook {
+  background: url(../img/cookbook.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 /* landing page visual elements
@@ -185,7 +191,7 @@ html, body {
   justify-content: flex-end;
 
   top: 22vh;
-  left: 14vw;
+  left: 16vw;
 
   width: 30vw;
 
