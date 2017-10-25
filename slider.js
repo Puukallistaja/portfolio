@@ -3,24 +3,27 @@ $(document).ready(function(){
   // $('#spacer').addClass('animated lightSpeedIn');
   $('#spacer').addClass('animated slideInRight');
   $('ul').addClass('animated fadeInDown');
-  
-  let open = false;
-  const MAX = 64;
-  const MIN = 20;
+
+  const MAX   = 40;
+  const MIN   = 00;
+  const START = 10;
 
   const sl = $('#slider').slider({
     orientation: "vertical",
     min: MIN,
     max: MAX,
-    value: 31,
+    value: START,
     create: function( event, ui ) {
 
     },
     slide: function( event, ui ) {
       alignElements()
+      console.log(ui.value)
     },
     stop: function( event, ui ) {
       moveSlider(ui.value, .5)
+      console.log(ui.value)
+
     },
   });
 
@@ -29,12 +32,9 @@ $(document).ready(function(){
     // element coordinates and dimensions
     let slHandleY = $('.ui-slider-handle').offset().top;
     let spacerY = $('.spacer').offset().top;
-    let spacerHeight = $('.spacer').height() - 1;
+    let spacerHeight = $('.spacer').height() - 1; // -1px cus calc gives float and it can leave a small gap
     let baseY = $('.base').height();
-    console.log(`=======================
-    ${spacerY}
-    ----
-    ${slHandleY}`)
+
     // glue spacer to slider handle
     // glue top and bottom to spacer
     $('.spacer').offset($('.ui-slider-handle').offset());
@@ -46,14 +46,13 @@ $(document).ready(function(){
   // when scrolled, move the slider
   $('body').on( 'DOMMouseScroll mousewheel', function ( event ) {
     let currHeight = sl.slider('option', 'value');
-    let newHeight;
-    let step = 4;
-
+    let step = 1; //scrolling step
+    // console.log(currHeight)
     if ( event.originalEvent.detail     > 0 
       || event.originalEvent.wheelDelta < 0 ) {
       //scroll down
                   // stop scrolling if getting out of bounds
-      moveSlider( currHeight >= (MIN - step) ? currHeight - step
+      moveSlider( currHeight >= (MIN + step) ? currHeight - step
                                              : currHeight );
     } else {
       //scroll up
@@ -81,17 +80,35 @@ $(document).ready(function(){
     sl.slider('option','slide')
         .call(sl, null, { handle: $('.ui-slider-handle', sl), value: height });
   }
-  // click events on name and words
-  $('.words, #name').on('click', function() {
-    if (open) {
-      moveSlider(31, .5);
-      open = false;
-    } else {
-      let target = $(this).is($('.words')) === true ? MAX : MIN;
-      moveSlider(target, .8, 'ease-in-out');
-      open = true;
+  // look if either cover is open
+        // bit messy and checks are all around the place. should be only in here
+  function coverOpen() {
+
+    let slVal = sl.slider('option', 'value');
+
+    let topOpen = slVal >= 35 ? true : false
+    let botOpen = slVal <=  5 ? true : false
+
+    return {
+      top: topOpen,
+      bottom: botOpen
     }
-    
+  }
+  
+  // open or close each cover
+  // 
+  $('#words, #name').on('click', function() {
+    let target;
+
+    if ( $(this).is( $('#words') ) ) {
+      target = coverOpen().top ? START : MAX
+      moveSlider(target, .5)
+    } else {
+      target = coverOpen().bottom ? START : MIN
+      moveSlider(target, .5)
+    }
   });
+
+
 
 });

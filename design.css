@@ -45,7 +45,7 @@ html, body {
 
 .spacer {
   position: absolute;
-  top: 64%;
+  top: 64vh;
   z-index: 20;
   height: 4vh;
   width: 100vw;
