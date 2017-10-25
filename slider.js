@@ -18,12 +18,9 @@ $(document).ready(function(){
     },
     slide: function( event, ui ) {
       alignElements()
-      console.log(ui.value)
     },
     stop: function( event, ui ) {
       moveSlider(ui.value, .5)
-      console.log(ui.value)
-
     },
   });
 

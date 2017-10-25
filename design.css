@@ -24,8 +24,6 @@ html, body {
   z-index: 10;
   width: 100%;
 
-  min-height: 10%;
-
   background: rgb(0, 0, 0);
   /* transition: all .1s ease-in-out; */
 }
@@ -83,25 +81,33 @@ html, body {
   justify-content: center;
   align-items: center;
 }
+
+
+
 .works {
-  position: absolute;
-  left: 45%;
-  top: 24vh;
-  width: 26rem;
+  position: relative;
+  top: -7vh;
+  left: 32vw;
+  width: 36vw;
 
   border: 10px ridge rgb(150, 150, 150);
   border-top-color: rgb(120, 120, 120);
   border-right-color: rgb(100, 100, 100);
   
-  transform: perspective(250px) rotateY( -6deg );
+  transform: perspective(400px) rotateY( -5deg );
+
   box-shadow: 
               5px 0px 10px 0px rgba(0,0,0,0.75),
         inset 4px 0px 13px 3px rgba(0,0,0,0.75);
 }
+
+
+
+
 .work {
   /* border: 5px inset rgb(150, 150, 150); */
 
-  height: 14rem;
+  height: 35vh;
   margin: 0rem;
 
 }
@@ -196,4 +202,46 @@ html, body {
   border: none;
   margin: 0;
   padding: 0;
+}
+
+.contacts {
+  /* z-index: 50; */
+  /* border: 1px solid red; */
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+
+
+  top: 22vh;
+  left: 14vw;
+
+  width: 30vw;
+
+  /* transform: perspective(100px) rotateY( -4deg ); */
+
+}
+
+.email {
+  background: url(email.svg);
+}
+.facebook {
+  background: url(facebook.svg);
+  width: 8vh !important;
+}
+.github {
+  background: url(github.svg);
+}
+
+.email,
+.facebook,
+.github {
+  /* border: 1px solid black; */
+  color: rgba(255, 0, 0, 0.678);
+  height: 8vh;
+  width: 14vh;
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
