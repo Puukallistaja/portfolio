@@ -119,14 +119,11 @@ $(document).ready(function(){
     let target;
 
     if ( $(this).is( $('#words') ) ) {
-      target = coverOpen().top ? START : MAX
-      moveSlider(target, .5)
+      target = coverOpen().top ? START : MAX;
+      moveSlider(target, .5);
     } else {
-      target = coverOpen().bottom ? START : MIN
-      moveSlider(target, .5)
+      target = coverOpen().bottom ? START : MIN;
+      moveSlider(target, .5);
     }
   });
-
-
-
 });
