@@ -239,20 +239,7 @@
     font-size: 3.6rem;
   }
 }
-@media screen and (max-width: 680px) and (min-width: 480px) {
-  .works {
-    top: -7vh;
-    left: 2vw;
-    width: 76vw;
-  }  
-}
-@media screen and (max-width: 768px) and (min-width: 680px) {
-  .works {
-    top: -7vh;
-    left: 6vw;
-    width: 70vw;
-  }  
-}
+
 /* bigger screens
 ================= */
 @media screen and (min-width: 768px) {
