@@ -98,10 +98,10 @@ $(document).ready(function(){
   
   // open or close each cover
   // 
-  $('#words, #name').on('click', function() {
+  $('.top, .bottom').on('click', function() {
     let target;
 
-    if ( $(this).is( $('#words') ) ) {
+    if ( $(this).is( $('.top') ) ) {
       target = coverOpen().top ? START : MAX
       moveSlider(target, .5)
     } else {
