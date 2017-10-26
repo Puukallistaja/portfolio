@@ -3,11 +3,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-html, body {
-  height: 100%;
-  width: 100%;
-}
-
 
 /* background with works and contacts
 ======================================*/
@@ -18,13 +13,13 @@ html, body {
   justify-content: center;
   align-items: center;
 
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
 
   background: rgb(100, 100, 100) url(../img/window.jpg);
   background-attachment: fixed;
   background-size: cover;
-  background-position: center;
+  background-position: right;
 
   overflow: hidden;
 }
@@ -95,14 +90,14 @@ html, body {
 .works {
   position: relative;
   top: -7vh;
-  left: 32vw;
-  width: 36vw;
+  left: 0vw;
+  width: 84vw;
 
   border: 10px ridge rgb(150, 150, 150);
   border-top-color: rgb(120, 120, 120);
   border-right-color: rgb(100, 100, 100);
   
-  transform: perspective(400px) rotateY( -5deg );
+  /* transform: perspective(400px) rotateY( -5deg ); */
 
   box-shadow: 
               5px 0px 10px 0px rgba(0,0,0,0.75),
@@ -113,7 +108,7 @@ html, body {
 =============================== */
 .work {
   /* gives height also for container: works */
-  height: 35vh;
+  height: 38vh;
   margin: 0rem;
 
 }
@@ -143,34 +138,40 @@ html, body {
 .words,
 .name {
   color: rgb(255, 255, 255);
-  font-size: 6rem;
+  font-size: 2.7rem;
   cursor: pointer;
   user-select: none;
+  margin: 0 .5rem;
 }
+
+
 /* tagline 'building=web'
 ========================= */
 .words {
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
+  align-items: flex-end;
   flex: 1 1 auto;
 
-  margin: 0 1rem;
+  margin: .5rem .5rem;
   
-  
-  font-size: 6rem;
+  font-size: 2.2rem;
   font-variant: small-caps;
+}
+.words p {
+  display: flex;
+  line-height: .8;
+  align-items: flex-end;
 }
 /* list of red words */
 .words ul {
   position: relative;
-  align-self: center;
-
-  top: .4rem;
+  padding-bottom: 1px;
   list-style: none;
   color: rgb(200, 0, 0);
-  font-size: 1.2rem;
-
+  font-size: 1rem;
+  line-height: .8;
   /* start the animation when spacer has almost finished its */
   animation-delay: 1s;
 }
@@ -180,24 +181,21 @@ html, body {
 .name {
   line-height: .9;
   flex: 0 0 auto;
-  margin-right: 1rem;
 }
 
 
 /* these are in the base div, under the covers
 ============================================== */
 .contacts {
-  position: relative;
+  position: absolute;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-end;
 
-  top: 22vh;
-  left: 16vw;
+  top: 70vh;
+  right: .5rem;
 
-  width: 30vw;
-
-  /* transform: perspective(100px) rotateY( -4deg ); */
+  width: 50vw;
 }
 .email {
   background: url(../img/email.svg);
@@ -221,105 +219,53 @@ html, body {
   background-position: center;
   background-repeat: no-repeat;
 }
-
-
-@media screen and (max-width: 705px) {
+/* landscape for small screens */
+@media screen and (orientation: landscape) {
+  .works {
+    top: -7vh;
+    left: 18vw;
+    width: 48vw;
+  }
+}
+@media screen and (min-width: 480px) and (orientation: landscape) {
   .words,
   .name {
     font-size: 3rem;
   }
-  .words {
-    justify-content: space-between;
-    align-items: flex-end;
-  }
-  .words ul {
-    top: -.5rem;
-    font-size: 3rem;
-    line-height: .8;
-  }
-  .contacts {
-    left: 16.5vh;
-  }
 }
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 600px) and (orientation: landscape) {
   .words,
   .name {
-    font-size: 2.7rem;;
+    font-size: 3.6rem;
   }
-  .words {
-    flex-flow: column nowrap;
-    align-items: flex-start;
-    justify-content: flex-end;
-    line-height: .6;
-    margin-bottom: .5rem;
-  }
-
-  .words ul {
-    top: 0;
-    left: -.1rem;
-
-    align-self: left;
-    line-height: .8;
-  }
-  /* on small screens, viewport units created a mess */
-  .top {
-    height: 64%;
-    max-height: 64%;
-  }
-  .bottom {
-    height: 32%;
-    max-height: 32%;
-  }
-  .spacer {
-    top: 64%;
-    height: 4.3%;
-  }
-  .slider {
-    top: 20%;
-    height: 64%;
-  }
-  .works {
-    left: 16%;
-    width: 75%;
-  }
-  
 }
-/* for landscape */
-@media screen and (max-height: 600px) and (orientation: landscape) {
-  .top {
-    height: 78.2%;
-    max-height: 78.2%;
-  }
-  .bottom {
-    height: 16%;
-    max-height: 16%;
-  }
-  .spacer {
-    height: 6.8%;
-  }
-  .slider {
-    top: 16.5%;
-    height: 66%;
-  }
-  .works {
-    top: 1%;
-    left: 15%;
-    width: 50%;
-  }
-  .work {
-    height: 45vh;
-  }
+@media screen and (min-width: 768px) {
+  .words, 
   .name {
-    align-self: flex-end;
-    margin-bottom: .4rem;
+    font-size: 6rem;
   }
-  .contacts {
-    flex-direction: row-reverse;
-    z-index: 50;
-    top: initial;
-    left: 1rem;
-    right: initial;
-    bottom: 0.6rem;
-    position: absolute;
+  .words ul {
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+  .works {
+    left: 10vw;
+    width: 50vw;
+    transform: perspective(400px) rotateY( -4deg );
   }
 }
+@media screen and (min-width: 900px) {
+  .works {
+    left: 14vw;
+    width: 48vw;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .works {
+    left: 16vw;
+    width: 44vw;
+  }
+}
+
+
+

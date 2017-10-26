@@ -1,19 +1,40 @@
 $(document).ready(function(){
-
-  // $('#spacer').addClass('animated lightSpeedIn');
+  
+  
+  // animations when starting
   $('#spacer').addClass('animated slideInRight');
   $('ul').addClass('animated fadeInDown');
+  // $('#spacer').on(`webkitTransitionEnd 
+  //                   mozTransitionEnd 
+  //                   MSTransitionEnd 
+  //                   oTransitionend 
+  //                   Transitionend`,
+  //                 alignElements()
+  //                 )
 
+
+  console.log($('body').height() / $('body').width())
   const MAX   = 40;
   const MIN   = 00;
   const START = 10;
 
+  //landscape orientation optimisation
+  // const START = ($('body').height() / $('body').width()) < 1 ? 0 : 10;
+
+  //when we detect landscape (START == 0), move spacer
+  // if (!START) {
+  //   $('#spacer').css('top', '77.5%');
+  // }
+  // $(window).on('resize', )
+
+  console.log(START)
   const sl = $('#slider').slider({
     orientation: "vertical",
     min: MIN,
     max: MAX,
     value: START,
     create: function( event, ui ) {
+      
       // alignElements()
     },
     slide: function( event, ui ) {
