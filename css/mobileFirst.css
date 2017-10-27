@@ -197,6 +197,7 @@
 
   width: 50vw;
 }
+
 .email {
   background: url(../img/email.svg);
 }
@@ -209,6 +210,16 @@
   background: url(../img/github.svg);
 }
 
+.email:hover {
+  background: url(../img/emailHover.svg);
+}
+.facebook:hover {
+  background: url(../img/facebookHover.svg);
+}
+.github:hover {
+  background: url(../img/githubHover.svg);
+}
+
 .email,
 .facebook,
 .github {
@@ -219,6 +230,17 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+.email:hover,
+.facebook:hover,
+.github:hover {
+  height: 8vh;
+  width: 14vh;
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 /* landscape for small screens */
 @media screen and (orientation: landscape) {
   .works {
